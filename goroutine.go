@@ -1,6 +1,6 @@
 package main
-import "fmt"
 
+import "fmt"
 
 // func test(s string){
 // 	for i := 0; i<10;i++ {
@@ -9,18 +9,24 @@ import "fmt"
 // 	}
 // }
 
-func test1(done chan bool){
-	fmt.Println("Test 1")
-	done <- true
+func test1(done chan bool) {
+	// fmt.Println("Test 1")
+	// done <- true
+	for {
+		fmt.Println("b")
+	}
 }
 
-func test2(done chan bool){
-	<- done
-	fmt.Println("Test 2")
+func test2(done chan bool) {
+	// <- done
+	// fmt.Println("Test 2")
+	for {
+		fmt.Println("a")
+	}
 
 }
 
-func main(){
+func main() {
 	done := make(chan bool)
 	go test2(done)
 	go test1(done)
